@@ -67,3 +67,9 @@ main {
     color: #FFFFFF;
     transform: rotate(-90deg);
 }
+
+section {
+    position: absolute;
+    top: 90px;
+    left: 117px;
+}

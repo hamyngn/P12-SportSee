@@ -4,6 +4,7 @@
 :root {
   --primary-color: #020203;
   --secondary-color: #FF0101;
+  --tertiary-color: #FBFBFB;
 }
 
 body {
@@ -22,4 +23,24 @@ code {
 
 a {
   text-decoration: none;
+}
+
+table, th, td {
+  border:1px solid var(--primary-color);
+}
+
+table {
+  width: 600px;
+  margin-top: 234px;
+  margin-left: 109px;
+  font-size: 20px;
+  text-align: center;
+}
+
+th {
+  color: var(--secondary-color)
+}
+
+tr {
+  height: 60px;
 }
