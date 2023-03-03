@@ -1,0 +1,43 @@
+.container {
+    width: 835px;
+    height: 320px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.0212);
+    margin-left: 109px;
+    margin-top: 77px;
+}
+
+.flexRow {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 24px 32px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.key {
+    display: flex;
+    font-size: 14px;
+    color: #74798C;
+    font-weight: 500;
+}
+
+.point, .pointRed {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.point {
+    background-color: #282D30;
+}
+
+.pointRed {
+    background-color: #E60000;
+}

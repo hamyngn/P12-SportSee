@@ -1,16 +1,13 @@
-import getSuspender from "./getSuspender";
 import axios from "axios";
 
   const fetchData = async (url) => {
+    let response;
     try {
-      const response = await axios.get(
-          url
-      );
-      console.log(response.data.data)
-      return (response.data.data);
+      response = await axios.get(url);
     } catch (err) {
-      console.log(err.message);
+      console.error(err.message);
     }
+    return response.data.data;
   };
 
 export default fetchData;

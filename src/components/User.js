@@ -1,55 +1,25 @@
-import React, { useEffect, useState }/* , { useState, useEffect }  */from "react";
+import React from "react";
 import { useParams } from "react-router";
+import getUserHook from "../hooks/getUserHook";
 import UserPage from "../pages/UserPage";
-import fetchData from "../utils/fetchData";
-/* import axios from "axios"; */
+import ActivityChart from "./ActivityChart";
 
 const User = () => {
     let {id} = useParams();
-    let [data, setData] = useState({})
-        const apiData = fetchData('http://localhost:3000/user/'+id);
-        setData(apiData)
-    
-    console.log(data) 
-/*     let [data, setData] = useState({});
-    let [error, setError] = useState(false);
-    let [loading, setLoading] = useState(true);
-    useEffect(() => {
-        const getData = async () => {
-          try {
-            const response = await axios.get(
-                'http://localhost:3000/user/'+id
-            );
-            console.log(response.data.data)
-            setData(response.data.data);
-          } catch (err) {
-            setError(err.message);
-          } finally {
-            setLoading(false);
-          }
-        };
-        getData();
-      }, []);
-      if(error) {
-        return (
-            <div>{error}</div>
-        )
-      } else if (loading) {
-        return(
-            <div>Loading...</div>
-        )
-      } else {
-        return (
-            <>
-            <UserPage user={data}/>
-            </>
-            );
-      }  */  
+    let {user, loading} = getUserHook(id);
+
+    if (loading) {
+      return(
+          <div>Loading...</div>
+      )
+    } else {
       return (
-        <>
-        <UserPage user={data}/>
-        </>
-        );     
+          <>
+          <UserPage user={user}/>
+          <ActivityChart id={id}/>
+          </>
+        );
+    } 
 }
 
 export default User;
