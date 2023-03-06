@@ -41,3 +41,19 @@
 .pointRed {
     background-color: #E60000;
 }
+
+.tooltip {
+    display: flex;
+    flex-direction: column;
+    background-color: #E60000;
+    width: 39px;
+    height: 63px;
+    font-size: 7px;
+    font-weight: 500;
+    color:#FFFFFF;
+    margin: 0;
+    align-items: center;
+    border-radius: none;
+    border: none;
+    justify-content: center;
+}
