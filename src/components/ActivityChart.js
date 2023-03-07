@@ -49,7 +49,9 @@ const CustomTooltip = ({ active, payload }) => {
       fontSize={14}
       fontWeight={500}
       tickFormatter={dateTickFormatter} 
-      tickLine={false} padding={{ left: 9, right: 9 }} />
+      tickLine={false} 
+      padding={{ left: 9, right: 9 }}
+       />
       <YAxis yAxisId="left" tickCount={3} dataKey="calories" orientation="left" hide textAnchor="start"/>
       <YAxis 
         yAxisId="right" 

@@ -1,19 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router";
-import fetchData from "../utils/fetchData";
+import getPerformanceHook from "../hooks/getPerformanceHook";
 import PerformancePage from "../pages/PerformancePage"
 
 const Performance = () => {
     let {id} = useParams();
-    let [data, setData] = useState({});
-    const [loading, setLoading] = useState(true);
-    
-    useEffect(()=> {
-        fetchData('http://localhost:3000/user/'+ id + '/performance').then ((res) => {
-            setData(res)
-            setLoading(false)
-        });
-    }, []);
+    let {data, loading} = getPerformanceHook(id);
     
     if (loading) {
         return <div>Loading...</div>;

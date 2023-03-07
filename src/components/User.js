@@ -4,6 +4,9 @@ import getUserHook from "../hooks/getUserHook";
 import UserPage from "../pages/UserPage";
 import ActivityChart from "./ActivityChart";
 import SessionChart from "./SessionChart";
+import PerformanceChart from "./PerformanceChart";
+import ScoreChart from "./ScoreChart";
+import styles from "../assets/styles/User.module.css"
 
 const User = () => {
     let {id} = useParams();
@@ -18,7 +21,11 @@ const User = () => {
           <>
           <UserPage user={user}/>
           <ActivityChart id={id}/>
+          <div className={styles.container}>
           <SessionChart id={id}/>
+          <PerformanceChart id={id} />
+          <ScoreChart id={id} />
+          </div>
           </>
         );
     } 
