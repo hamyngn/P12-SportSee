@@ -35,7 +35,7 @@ const CustomTooltip = ({ active, payload }) => {
       </div>
     <BarChart 
       margin= {{ top: 64, right: 0, bottom: 20, left: 40 }}
-      width={835}
+      width={800}
       height={250}
       data={activities}
       barSize={7}
@@ -51,6 +51,7 @@ const CustomTooltip = ({ active, payload }) => {
       tickFormatter={dateTickFormatter} 
       tickLine={false} 
       padding={{ left: 9, right: 9 }}
+      tickCount={10}
        />
       <YAxis yAxisId="left" tickCount={3} dataKey="calories" orientation="left" hide textAnchor="start"/>
       <YAxis 
@@ -66,7 +67,14 @@ const CustomTooltip = ({ active, payload }) => {
         fontSize={14}
         fontWeight={500}
       />
-      <Tooltip wrapperStyle={{ outline: "none" }} content={<CustomTooltip />} />
+      <Tooltip 
+      wrapperStyle={{ outline: "none" }} 
+      content={<CustomTooltip />} 
+      contentStyle={{backgroundColor:"rgba(0, 0, 0, 0.1)"}}
+      position={{
+        y: 30
+      }}
+      />
       <Bar yAxisId="right" dataKey="kilogram" fill="#282D30" radius={[10, 10, 0, 0]}>
       </Bar> 
       <Bar yAxisId="left" dataKey="calories" fill="#E60000" radius={[10, 10, 0, 0]} />

@@ -38,9 +38,12 @@ const PerformanceChart = ({id}) => {
             fontSize={12}
             margin={{top: 20, left: 30}}
             >
-            <PolarGrid />
-            <PolarAngleAxis dataKey="kind"  />
-            <Radar dataKey="value" fill="rgba(255, 1, 1, 0.7)" />
+            <PolarGrid gridType="polygon" radialLines={false}/>
+            <PolarAngleAxis dataKey="kind"
+            stroke="rgba(255, 255, 255, 1)"
+            tickLine={false}
+            />
+            <Radar dataKey="value" fill="rgba(255, 1, 1, 0.7)"/>
             </RadarChart>
         </div>
     )

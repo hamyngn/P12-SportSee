@@ -44,3 +44,11 @@ th {
 tr {
   height: 60px;
 }
+
+.recharts-polar-angle-axis-tick-value {
+  transform: translateY(0.25em);
+}
+
+.recharts-yAxis {
+  transform: translateX(35px);
+}

@@ -6,6 +6,18 @@ import styles from "../assets/styles/SessionChart.module.css"
 const SessionChart = ({id}) => {
 let {sessions} = getAverageSession(id)
 
+if(sessions.length === 7) {
+    console.log(sessions)
+    sessions.unshift(
+        {day: 0,
+        sessionLength: sessions[0].sessionLength - 5}
+    )
+    sessions.push(
+        {day: 8,
+        sessionLength: sessions[7].sessionLength + 5}
+    )
+}
+
 const dateTickFormatter = (tick) => {
     let date;
     switch(tick) {
@@ -53,21 +65,35 @@ const dateTickFormatter = (tick) => {
             <div className={styles.title}>
             Durée moyenne des sessions
             </div>
-            <LineChart width={245} height={180} data={sessions}
-            margin={{ top: 0, right: 0, left: 20, bottom: 0 }}>
+            <div className={styles.rectangle}></div>
+            <LineChart width={280} height={180} data={sessions} margin={{left: -20}}>
             <defs>
-            <linearGradient id="colorUv" x1="1" y1="1" x2="0" y2="0">
-                <stop offset="30%" stopColor="#rgba(255, 255, 255, 1)" stopOpacity={0.5}  />
-                <stop offset="100%" stopColor="rgba(255, 255, 255, 0.106534" />
+            <linearGradient id="colorUv">
+                <stop offset="0%" stopColor="rgba(255, 255, 255, 0.4)" />
+                <stop offset="100%" stopColor="rgba(255, 255, 255, 1)" />
             </linearGradient>
             </defs>
-            <XAxis fontFamily={'Roboto, sans-serif'} fontSize={12}
-            dataKey="day" tickFormatter={dateTickFormatter} tickLine={false} axisLine={false} tick={{ fill: 'rgba(255, 255, 255, 0.5)' }}/>
+            <XAxis 
+            ontFamily={'Roboto, sans-serif'} 
+            fontSize={12}
+            dataKey="day" 
+            tickFormatter={dateTickFormatter} 
+            tickLine={false} axisLine={false} 
+            tick={{ fill: 'rgba(255, 255, 255, 0.5)' }}
+            />
             <YAxis hide/>
-            <Tooltip cursor={false} wrapperStyle={{ outline: "none" }} content={<CustomTooltip />}/>
-            <Line id="line" connectNulls type="monotone" dataKey="sessionLength" 
+            <Tooltip 
+            cursor={false} 
+            wrapperStyle={{ outline: "none" }} 
+            content={<CustomTooltip />} 
+            contentStyle={{backgroundColor:"rgba(0, 0, 0, 0.1)"}}
+            />
+            <Line
+            connectNulls 
+            type="monotone" 
+            dataKey="sessionLength" 
             strokeWidth={2} dot={false}
-            fill="url(#colorUv)"
+            stroke="url(#colorUv)"
             activeDot={{ stroke: 'rgba(255, 255, 255, 0.198345)', strokeWidth: 10 }}
             />
             </LineChart>
