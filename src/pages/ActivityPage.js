@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types'
 
 const ActivityPage = ({activities}) => {
    const sessions = activities.map((activity, index) => {
@@ -27,6 +28,10 @@ const ActivityPage = ({activities}) => {
    </table> 
    </>
  )
+}
+
+ActivityPage.propTypes = {
+   activities: PropTypes.array
 }
 
 export default ActivityPage;

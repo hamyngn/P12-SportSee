@@ -2,6 +2,7 @@ import React from "react";
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar } from "recharts"
 import getPerformanceHook from "../hooks/getPerformanceHook";
 import styles from "../assets/styles/PerformanceChart.module.css"
+import PropTypes from 'prop-types'
 
 const PerformanceChart = ({id}) => {
     const {data, loading} = getPerformanceHook(id);
@@ -48,4 +49,9 @@ const PerformanceChart = ({id}) => {
         </div>
     )
 }
+
+PerformanceChart.propTypes = {
+    id: PropTypes.string
+}
+
 export default PerformanceChart;

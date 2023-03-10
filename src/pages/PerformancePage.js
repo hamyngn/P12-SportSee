@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from 'prop-types'
 
 const PerformancePage = ({data}) => {
     const performances = Object.entries(data.kind).map(([key, value]) => {
@@ -32,4 +33,9 @@ const PerformancePage = ({data}) => {
      </>
    )
 }
+
+PerformancePage.propTypes = {
+    data: PropTypes.object
+}
+
 export default PerformancePage

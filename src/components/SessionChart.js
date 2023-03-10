@@ -2,12 +2,12 @@ import React from "react";
 import getAverageSession from "../hooks/getAverageSession";
 import { LineChart, XAxis, YAxis, Tooltip, Line } from "recharts"
 import styles from "../assets/styles/SessionChart.module.css"
+import PropTypes from 'prop-types'
 
 const SessionChart = ({id}) => {
 let {sessions} = getAverageSession(id)
 
 if(sessions.length === 7) {
-    console.log(sessions)
     sessions.unshift(
         {day: 0,
         sessionLength: sessions[0].sessionLength - 5}
@@ -99,6 +99,10 @@ const dateTickFormatter = (tick) => {
             </LineChart>
         </div>
     )
+}
+
+SessionChart.propTypes = {
+    id: PropTypes.string
 }
 
 export default SessionChart

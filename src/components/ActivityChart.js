@@ -2,6 +2,7 @@ import React from "react";
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Bar } from "recharts"
 import getActivityHook from "../hooks/getActivityHook";
 import styles from "../assets/styles/ActivityChart.module.css"
+import PropTypes from 'prop-types'
 
 const ActivityChart = ({id}) => {
 let {activities} = getActivityHook(id);
@@ -20,7 +21,6 @@ const CustomTooltip = ({ active, payload }) => {
       </div>
     );
   }
-
   return null;
 };
 
@@ -34,7 +34,7 @@ const CustomTooltip = ({ active, payload }) => {
         </div>
       </div>
     <BarChart 
-      margin= {{ top: 64, right: 0, bottom: 20, left: 40 }}
+      margin= {{ top: 64, right: 0, bottom: 20, left: 45}}
       width={800}
       height={250}
       data={activities}
@@ -69,8 +69,7 @@ const CustomTooltip = ({ active, payload }) => {
       />
       <Tooltip 
       wrapperStyle={{ outline: "none" }} 
-      content={<CustomTooltip />} 
-      contentStyle={{backgroundColor:"rgba(0, 0, 0, 0.1)"}}
+      content={<CustomTooltip />}
       position={{
         y: 30
       }}
@@ -81,6 +80,10 @@ const CustomTooltip = ({ active, payload }) => {
     </BarChart>
     </div>
   )
+}
+
+ActivityChart.propTypes = {
+  id: PropTypes.string
 }
 
 export default ActivityChart

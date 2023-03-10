@@ -2,6 +2,7 @@ import React from "react";
 import { RadialBarChart, RadialBar } from "recharts"
 import getUserHook from "../hooks/getUserHook";
 import styles from "../assets/styles/ScoreChart.module.css"
+import PropTypes from 'prop-types'
 
 const ScoreChart = ({id}) => {
     let {user, loading} = getUserHook(id);
@@ -49,6 +50,10 @@ const ScoreChart = ({id}) => {
         </div>
     )
 }
+}
+
+ScoreChart.propTypes = {
+    id: PropTypes.string
 }
 
 export default ScoreChart;

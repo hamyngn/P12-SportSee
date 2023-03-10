@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
 const AverageSessionPage = ({sessions}) => {
     const sessionsDetails = sessions.map((session, index) => {
@@ -25,6 +26,10 @@ const AverageSessionPage = ({sessions}) => {
      </table> 
      </>
    )
+}
+
+AverageSessionPage.propTypes = {
+   sessions: PropTypes.array
 }
 
 export default AverageSessionPage;

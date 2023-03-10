@@ -4,6 +4,7 @@ import {ReactComponent as IconFire} from '../assets/images/fire-solid.svg';
 import {ReactComponent as IconDrumStick} from '../assets/images/drumstick-bite-solid.svg';
 import {ReactComponent as IconApple} from '../assets/images/apple.svg';
 import {ReactComponent as IconBurger} from '../assets/images/cheeseburger.svg';
+import PropTypes from 'prop-types'
 
 const UserPage = ({user}) => {
 return (
@@ -42,6 +43,10 @@ return (
     </div>
     </div>
 )
+}
+
+UserPage.propTypes = {
+    user: PropTypes.object
 }
 
 export default UserPage
