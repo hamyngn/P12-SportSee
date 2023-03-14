@@ -29,7 +29,7 @@ const AverageSessionPage = ({sessions}) => {
 }
 
 AverageSessionPage.propTypes = {
-   sessions: PropTypes.array
+   sessions: PropTypes.array.isRequired
 }
 
 export default AverageSessionPage;

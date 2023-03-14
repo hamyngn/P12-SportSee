@@ -35,7 +35,7 @@ const PerformancePage = ({data}) => {
 }
 
 PerformancePage.propTypes = {
-    data: PropTypes.object
+    data: PropTypes.object.isRequired
 }
 
 export default PerformancePage

@@ -53,7 +53,7 @@ const ScoreChart = ({id}) => {
 }
 
 ScoreChart.propTypes = {
-    id: PropTypes.string
+    id: PropTypes.string.isRequired
 }
 
 export default ScoreChart;

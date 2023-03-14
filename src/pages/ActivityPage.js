@@ -31,7 +31,7 @@ const ActivityPage = ({activities}) => {
 }
 
 ActivityPage.propTypes = {
-   activities: PropTypes.array
+   activities: PropTypes.array.isRequired
 }
 
 export default ActivityPage;

@@ -46,7 +46,7 @@ return (
 }
 
 UserPage.propTypes = {
-    user: PropTypes.object
+    user: PropTypes.object.isRequired
 }
 
 export default UserPage
