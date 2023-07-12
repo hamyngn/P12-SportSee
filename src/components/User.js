@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
-import getUserHook from "../hooks/getUserHook";
+import getData from "../services/getData";
 import UserPage from "../pages/UserPage";
 import ActivityChart from "./ActivityChart";
 import SessionChart from "./SessionChart";
@@ -10,25 +10,29 @@ import styles from "../assets/styles/User.module.css"
 
 const User = () => {
     let {id} = useParams();
-    let {user, loading} = getUserHook(id);
+    const { user, activities, sessions, performance, error, loading } = getData(id);
 
-    if (loading) {
-      return(
-          <div>Loading...</div>
-      )
+    if(loading) {
+      return <div>Loading...</div>
     } else {
-      return (
+      if (error) {
+        return(
+            <div className={styles.error}>{error}</div>
+        )
+      } else {
+        return (
           <>
           <UserPage user={user}/>
-          <ActivityChart id={id}/>
+          <ActivityChart id={id} activities = {activities}/>
           <div className={styles.container}>
-          <SessionChart id={id}/>
-          <PerformanceChart id={id} />
-          <ScoreChart id={id} />
+          <SessionChart id={id} sessions={sessions}/>
+          <PerformanceChart id={id} performance={performance}/>
+          <ScoreChart id={id} user={user}/>
           </div>
           </>
         );
-    } 
+    }
+  }
 }
 
 export default User;

@@ -1,11 +1,9 @@
 import React from "react";
-import getAverageSession from "../hooks/getAverageSession";
 import { LineChart, XAxis, YAxis, Tooltip, Line } from "recharts"
 import styles from "../assets/styles/SessionChart.module.css"
 import PropTypes from 'prop-types'
 
-const SessionChart = ({id}) => {
-let {sessions} = getAverageSession(id)
+const SessionChart = ({id, sessions}) => {
 
 if(sessions.length === 7) {
     sessions.unshift(

@@ -1,31 +1,19 @@
 import React from "react";
 import { RadialBarChart, RadialBar } from "recharts"
-import getUserHook from "../hooks/getUserHook";
 import styles from "../assets/styles/ScoreChart.module.css"
 import PropTypes from 'prop-types'
 
-const ScoreChart = ({id}) => {
-    let {user, loading} = getUserHook(id);
+const ScoreChart = ({id, user}) => {
     let data;
-    if(!loading) {
-        if(user.todayScore === "undefined") {
-            data = [
-                {
-                    todayScore: 1,
-                },
-                {
-                    todayScore: user.score,
-                }
-            ]
+
+    data = [
+        {
+            todayScore: 1,
+        },
+        {
+            todayScore: user.todayScore || user.score,
         }
-        data = [
-            {
-                todayScore: 1,
-            },
-            {
-                todayScore: user.todayScore || user.score,
-            }
-        ]
+    ]
     
     return (
         <div className={styles.container}>
@@ -49,7 +37,6 @@ const ScoreChart = ({id}) => {
         </div>
         </div>
     )
-}
 }
 
 ScoreChart.propTypes = {

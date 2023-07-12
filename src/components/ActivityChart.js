@@ -1,11 +1,9 @@
 import React from "react";
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Bar } from "recharts"
-import getActivityHook from "../hooks/getActivityHook";
 import styles from "../assets/styles/ActivityChart.module.css"
 import PropTypes from 'prop-types'
 
-const ActivityChart = ({id}) => {
-let {activities} = getActivityHook(id);
+const ActivityChart = ({id, activities}) => {
 
 const dateTickFormatter = (tick) => {
   const date = new Date(tick);
