@@ -5,17 +5,6 @@ import PropTypes from 'prop-types'
 
 const SessionChart = ({id, sessions}) => {
 
-if(sessions.length === 7) {
-    sessions.unshift(
-        {day: 0,
-        sessionLength: sessions[0].sessionLength - 5}
-    )
-    sessions.push(
-        {day: 8,
-        sessionLength: sessions[7].sessionLength + 5}
-    )
-}
-
 const dateTickFormatter = (tick) => {
     let date;
     switch(tick) {
