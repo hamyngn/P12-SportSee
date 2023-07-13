@@ -35,7 +35,9 @@ export default function getData(id) {
                 if(api) {
                     setActivities(response.sessions)
                 } else {
-                    setActivities(response[0].sessions)
+                    if(response.length){
+                        setActivities(response[0].sessions)
+                    }
                 }
             }
         });
@@ -47,7 +49,9 @@ export default function getData(id) {
                 if(api) {
                     setSessions(response.sessions)
                 } else {
-                    setSessions(response[0].sessions)
+                    if(response.length){
+                        setSessions(response[0].sessions)
+                    }
                 }
                 
             }
@@ -60,7 +64,9 @@ export default function getData(id) {
                 if(api){
                     setPerformance(response)
                 } else {
-                    setPerformance(response[0])
+                    if(response.length){
+                        setPerformance(response[0])
+                    }
                 }
                 
             }
