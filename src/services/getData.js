@@ -10,10 +10,16 @@ export default function getData(id) {
     const [err, setErr] = useState(null)
     const [loading, setLoading] = useState(true)
 
-    const url = 'http://localhost:3000/user/'+ id
-    
+    let api, url
+    api = false
+    if(api) {
+        url = 'http://localhost:3000/user/'+ id
+    } else {
+        url = 'http://localhost:8000/user/'+ id
+    }
+
     useEffect(() => {
-        fetchData(url).then ((res) => {
+        fetchData(url, api).then ((res) => {
             const {response, error} = res
             if(error) {
                 setErr(error)
@@ -21,28 +27,42 @@ export default function getData(id) {
                 setUser(response)
             }
         });
-        fetchData(url + '/activity').then ((res) => {
+        fetchData(url + '/activity', api).then ((res) => {
             const {response, error} = res
             if(error) {
                 setErr(error)
             } else {
-                setActivities(response.sessions)
+                if(api) {
+                    setActivities(response.sessions)
+                } else {
+                    setActivities(response[0].sessions)
+                }
             }
         });
-        fetchData(url + '/average-sessions').then ((res) => {
+        fetchData(url + '/average-sessions', api).then ((res) => {
             const {response, error} = res
             if(error) {
                 setErr(error)
             } else {
-                setSessions(response.sessions)
+                if(api) {
+                    setSessions(response.sessions)
+                } else {
+                    setSessions(response[0].sessions)
+                }
+                
             }
         });
-        fetchData(url + '/performance').then ((res) => {
+        fetchData(url + '/performance', api).then ((res) => {
             const {response, error} = res
             if(error) {
                 setErr(error)
             } else {
-                setPerformance(response)
+                if(api){
+                    setPerformance(response)
+                } else {
+                    setPerformance(response[0])
+                }
+                
             }
         });
       }, [])

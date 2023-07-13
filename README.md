@@ -8,35 +8,54 @@ The back-end can be founded here: https://github.com/OpenClassrooms-Student-Cent
 To have a good organization, you can create a folder sportsee-app in which you will clone the back-end and front-end project
 
 Clone the back-end project in your folder sportsee-app : 
-$ git clone https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git
+git clone https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git
 
 sportsee-app/
    - P9-front-end-dashboard-master
 
 Clone the front-end project in your folder sportsee-app :
-$ git clone https://github.com/hamyngn/P12-SportSee.git
+git clone https://github.com/hamyngn/P12-SportSee.git
 
 sportsee-app/
    - P12-SportSee
 
-In the project directory, you can run:
+## How to launch this project on local
 
-How to launch this project on local
-
-First step - Launche the back-end
+1. Launche the back-end
 
 Follow indications in the README of back-end project
 
-Second step - Launch the front-end
+2. Install json server
+ ```sh
+npm install -g json-server
+ ```
 
-Go to cloned folder:
+3. Launche json server to access mockData
 
-$ cd P12-SportSee
+sportsee-app/
+   - P12-SportSee/
+      -src
+ ```sh
+json-server data.json --routes routes.json --port 8000
+ ```
+4. Install npm packages
 
-Install npm packages (represented in package.json) :
+sportsee-app/
+   - P12-SportSee
+ ```sh
+npm install
+ ```
+5. Launch the application :
+ ```sh
+npm start
+ ```
+6. Switch between Mock and real API
 
-$ npm install
+sportsee-app/
+   - P12-SportSee/
+      -src/
+         -services/
+            getData.js
 
-Launch the application :
-
-$ npm start
+- To use real API: Set the value of `let api = true`
+- To use Mock: Set the value of `let api = false`

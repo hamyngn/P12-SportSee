@@ -37,7 +37,7 @@ return (
         <div className={`${styles.iconContainer} ${styles.burgerBg}`}><IconBurger className={styles.icon} /></div>
         <div className={styles.flexColumn}>
         <div className={styles.keyText}>{user.keyData.carbohydrateCount}g</div>
-        <div className={styles.keyDescription}>Glucides</div>
+        <div className={styles.keyDescription}>Lipides</div>
         </div>
     </div>
     </div>
