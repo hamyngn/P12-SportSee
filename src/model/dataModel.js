@@ -3,7 +3,7 @@ const dataModel = ({sessions, performance}) => {
     let mergedData;
     let reverseData;
 
-    const kind = performance.kind;
+    const {kind} = performance;
     kind[1] = "Cardio";
     kind[2] = "Energy";
     kind[3] = "Endurance";

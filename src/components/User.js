@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import getData from "../services/getData";
 import UserPage from "../pages/UserPage";
@@ -11,15 +11,37 @@ import dataModel from "../model/dataModel";
 
 const User = () => {
     let {id} = useParams();
-    const { user, activities, sessions, performance, error, loading } = getData(id);
-    
+    const [activities, setActivities] = useState(null)
+    const [sessions, setSessions] = useState(null)
+    const [performance, setPerformance] = useState(null)
+    const [user, setUser] = useState(null)
+    const [err, setErr] = useState(null)
+    const [loading, setLoading] = useState(true)
 
+    useEffect (() => {
+      async function getDatas() {
+        const { user, activities, sessions, performance, error } = await getData(id);
+        if(user && activities && sessions && performance) {
+          setActivities(activities)
+          setUser(user)
+          setPerformance(performance)
+          setSessions(sessions)
+          setLoading(false)
+        }
+        if(error) {
+          setErr(error)
+          setLoading(false)
+        }
+    }
+      getDatas()
+    })
+    
     if(loading) {
       return <div>Loading...</div>
     } else {
-      if (error) {
+      if (err) {
         return(
-            <div className={styles.error}>{error}</div>
+            <div className={styles.error}>{err}</div>
         )
       } else {
         const {newPerformance, newSessions} = dataModel({sessions, performance})
@@ -34,7 +56,7 @@ const User = () => {
           </div>
           </>
         );
-    }
+      }
   }
 }
 
