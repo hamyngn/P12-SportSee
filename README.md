@@ -34,7 +34,7 @@ npm install -g json-server
 
 sportsee-app/
    - P12-SportSee/
-      -src
+      - src
  ```sh
 json-server data.json --routes routes.json --port 8000
  ```
@@ -53,9 +53,9 @@ npm start
 
 sportsee-app/
    - P12-SportSee/
-      -src/
-         -services/
-            getData.js
+      - src/
+         - services/
+            - getData.js
 
 - To use real API: Set the value of `let api = true`
 - To use Mock: Set the value of `let api = false`
